@@ -1,0 +1,166 @@
+Program to Reverse a String in Java
+
+Solution:
+import java.util.Scanner;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        // Step 1: Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        // Step 2: Prompt the user to enter a string
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();  // Read user input
+        
+        // Step 3: Reverse the string
+        String reversed = reverseString(input);
+        
+        // Step 4: Display the reversed string
+        System.out.println("Reversed string: " + reversed);
+        
+        // Step 5: Close the scanner to prevent resource leaks
+        scanner.close();
+    }
+
+    // Function to reverse a string
+    public static String reverseString(String str) {
+        // Convert the string to a character array
+        char[] charArray = str.toCharArray();
+        int left = 0, right = charArray.length - 1;
+
+        // Swap characters from both ends moving toward the center
+        while (left < right) {
+            // Swap characters
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+            
+            // Move towards the center
+            left++;
+            right--;
+        }
+        
+        // Convert character array back to string and return
+        return new String(charArray);
+    }
+}
+
+Line-by-Line Explanation:
+1. Importing Scanner class
+java
+
+import java.util.Scanner;
+We import Scanner from java.util package to take user input.
+2. Class Declaration
+java
+
+public class ReverseString {
+We declare a class named ReverseString.
+3. Main Method
+java
+Copy
+Edit
+public static void main(String[] args) {
+This is the entry point of our program where execution begins.
+4. Creating Scanner Object
+java
+
+Scanner scanner = new Scanner(System.in);
+Creates a Scanner object to read user input from the console.
+5. Prompting User for Input
+java
+
+System.out.print("Enter a string: ");
+String input = scanner.nextLine();
+System.out.print prints the message without a newline.
+scanner.nextLine() reads the entire input line as a string.
+6. Calling the Reverse Method
+java
+
+String reversed = reverseString(input);
+Calls reverseString method to reverse the input string.
+7. Printing the Reversed String
+java
+
+System.out.println("Reversed string: " + reversed);
+Displays the reversed string.
+8. Closing the Scanner
+java
+
+scanner.close();
+Closes the scanner to free resources.
+9. Defining the reverseString Method
+java
+
+public static String reverseString(String str) {
+This is a utility method that takes a string and returns its reversed version.
+10. Converting String to Character Array
+java
+
+char[] charArray = str.toCharArray();
+Converts the string into a character array for easy swapping.
+11. Initializing Pointers
+java
+
+int left = 0, right = charArray.length - 1;
+left starts at index 0 (beginning).
+right starts at charArray.length - 1 (end).
+12. Swapping Characters Using a While Loop
+java
+
+while (left < right) {
+Runs the loop until the left pointer crosses the right pointer.
+13. Swapping Characters
+java
+
+char temp = charArray[left];
+charArray[left] = charArray[right];
+charArray[right] = temp;
+Temporary variable temp stores the left character.
+The left character is swapped with the right character.
+14. Moving the Pointers
+java
+
+left++;
+right--;
+left++ moves the left pointer one step forward.
+right-- moves the right pointer one step backward.
+15. Converting Back to String
+java
+Copy
+Edit
+return new String(charArray);
+Converts the modified character array back into a String.
+Example Run
+Input:
+csharp
+Copy
+Edit
+Enter a string: hello
+Processing:
+Convert "hello" → ['h', 'e', 'l', 'l', 'o']
+Swap h ↔ o → ['o', 'e', 'l', 'l', 'h']
+Swap e ↔ l → ['o', 'l', 'l', 'e', 'h']
+Final reversed string: "olleh"
+Output:
+csharp
+
+Reversed string: olleh
+Alternative Approaches
+Using StringBuilder
+
+java
+
+public static String reverseString(String str) {
+    return new StringBuilder(str).reverse().toString();
+}
+Uses StringBuilder's built-in reverse() method.
+Using Recursion
+
+java
+
+public static String reverseString(String str) {
+    if (str.isEmpty()) return str;
+    return reverseString(str.substring(1)) + str.charAt(0);
+}
+Uses recursion to reverse the string.

@@ -1,0 +1,200 @@
+Program to find factorial of a Number in Java
+
+import java.util.Scanner;
+
+public class Factorial {
+    
+    // Recursive method to calculate factorial
+    public static long factorial(int num) {
+        // Base case: factorial of 0 or 1 is 1
+        if (num == 0 || num == 1) {
+            return 1;
+        } else {
+            // Recursive case: num * factorial of (num - 1)
+            return num * factorial(num - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter a number
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt(); // Read the user input number
+
+        // Call the recursive method and print the result
+        long result = factorial(num);
+        System.out.println("Factorial of " + num + " is " + result);
+
+        // Close the scanner to avoid resource leak
+        scanner.close();
+    }
+}
+
+
+Explanation of the Code (Recursion):
+Recursive Method to Calculate Factorial:
+
+java
+Copy
+Edit
+public static long factorial(int num) {
+    if (num == 0 || num == 1) {
+        return 1;  // Base case: factorial of 0 or 1 is 1
+    } else {
+        return num * factorial(num - 1); // Recursive case
+    }
+}
+Base Case: When num is 0 or 1, the factorial is 1. This is the stopping condition for the recursion.
+Recursive Case: If num is greater than 1, we multiply num by the result of factorial(num - 1). This means the function keeps calling itself with decreasing values of num until it reaches the base case.
+Main Method:
+
+The main method still uses a Scanner object to take input from the user.
+After getting the number, it calls the factorial method and prints the result.
+Recursion Flow:
+
+For example, if the user inputs 5, the sequence of recursive calls will be:
+scss
+Copy
+Edit
+factorial(5) -> 5 * factorial(4)
+factorial(4) -> 4 * factorial(3)
+factorial(3) -> 3 * factorial(2)
+factorial(2) -> 2 * factorial(1)
+factorial(1) -> 1 (base case)
+The recursion unravels from the base case, and the final result is calculated as:
+matlab
+Copy
+Edit
+factorial(5) = 5 * 4 * 3 * 2 * 1 = 120
+Base Case and Recursive Calls:
+
+Each call to factorial(num) reduces the problem size by calling factorial(num - 1), and this continues until the base case is met. The result is then computed by multiplying num by the result of the recursive call.
+Example Output:
+mathematica
+Copy
+Edit
+Enter a number: 5
+Factorial of 5 is 120
+Key Points for Interview:
+Recursion: The function calls itself with a smaller problem size (num - 1) until a base case is reached.
+Base Case: Necessary to terminate recursion, ensuring that the function doesn’t call itself indefinitely.
+Efficiency: While recursion can make the code simpler and more elegant, it can also lead to a stack overflow error if the recursion depth is too deep (e.g., for very large numbers).
+
+==========================================================================================================================================================================================================================================================
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter a number
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt(); // Read the user input number
+
+        // Initialize a variable to hold the factorial result, starting from 1 (as factorial of 0 is 1)
+        long factorial = 1;
+
+        // Loop to calculate the factorial
+        for (int i = 1; i <= num; i++) {
+            factorial *= i; // Multiply the current factorial by the loop counter
+        }
+
+        // Output the result
+        System.out.println("Factorial of " + num + " is " + factorial);
+
+        // Close the scanner to avoid resource leak
+        scanner.close();
+    }
+}
+
+
+Explanation of the Code:
+Import the Scanner class:
+
+java
+Copy
+Edit
+import java.util.Scanner;
+This line imports the Scanner class from the java.util package. The Scanner class is used to read input from the user, which in this case will be the number for which we want to calculate the factorial.
+Define the Factorial class:
+
+java
+Copy
+Edit
+public class Factorial {
+We define a class named Factorial. In Java, every program must have a class. The public keyword means that this class is accessible from other classes, and Factorial is the name of this particular class.
+Define the main method:
+
+java
+Copy
+Edit
+public static void main(String[] args) {
+This is the entry point for the Java program. The main method is executed when the program is run. The public keyword allows access to this method, static means it can be called without creating an object of the class, and void means this method doesn’t return any value.
+Create a Scanner object to get user input:
+
+java
+Copy
+Edit
+Scanner scanner = new Scanner(System.in);
+Here, we create a Scanner object named scanner. The System.in parameter specifies that we want to take input from the console (keyboard).
+Prompt the user to enter a number:
+
+java
+Copy
+Edit
+System.out.print("Enter a number: ");
+This line prints a message on the console asking the user to enter a number.
+Read the input from the user:
+
+java
+Copy
+Edit
+int num = scanner.nextInt();
+This line reads an integer input from the user and stores it in the variable num.
+Initialize the factorial variable:
+
+java
+Copy
+Edit
+long factorial = 1;
+We declare a variable factorial of type long. It’s initialized to 1 because the factorial of 0 is 1, and the factorial calculation will be multiplied step by step in the loop.
+Calculate the factorial using a loop:
+
+java
+Copy
+Edit
+for (int i = 1; i <= num; i++) {
+    factorial *= i;
+}
+This for loop starts with i equal to 1 and iterates up to num.
+Inside the loop, we multiply the current value of factorial by i in each iteration to calculate the factorial.
+For example, if num = 5, the loop will multiply factorial = 1 * 1, then factorial = 1 * 2, then factorial = 2 * 3, and so on until factorial = 120.
+Print the factorial result:
+
+java
+Copy
+Edit
+System.out.println("Factorial of " + num + " is " + factorial);
+After the loop finishes, the program prints the calculated factorial result to the console.
+Close the Scanner object:
+
+java
+Copy
+Edit
+scanner.close();
+This line closes the Scanner object to free up system resources, which is a good practice after using Scanner for input.
+Example Output:
+mathematica
+Copy
+Edit
+Enter a number: 5
+Factorial of 5 is 120
+Key Points for Interview:
+Scanner class: Used to read user input.
+Long variable: Used for the result since factorials grow large.
+For loop: Efficiently multiplies all integers from 1 to num to compute the factorial.
+Closing resources: Always close the Scanner object after using it to avoid memory leaks.

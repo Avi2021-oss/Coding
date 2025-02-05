@@ -1,0 +1,80 @@
+Substring method in java
+
+Solution
+public class SubstringExample {
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        
+        // Extracting substring from index 7 to the end
+        String sub1 = str.substring(7);
+        System.out.println("Substring from index 7: " + sub1);
+
+        // Extracting substring from index 0 to 5 (exclusive)
+        String sub2 = str.substring(0, 5);
+        System.out.println("Substring from index 0 to 5: " + sub2);
+    }
+}
+
+Line-by-Line Explanation
+Line 1:
+java
+Copy
+Edit
+public class SubstringExample {
+Defines a public class named SubstringExample.
+In Java, every program needs a class as an entry point.
+Line 2:
+java
+Copy
+Edit
+public static void main(String[] args) {
+The main() method is the entry point of the Java application.
+public: Accessible from anywhere.
+static: The method belongs to the class and doesn’t require an object to be invoked.
+void: Does not return any value.
+String[] args: Used for command-line arguments.
+Line 3:
+java
+Copy
+Edit
+String str = "Hello, World!";
+Declares and initializes a String variable str with "Hello, World!".
+Line 4-5:
+java
+Copy
+Edit
+String sub1 = str.substring(7);
+The substring(int beginIndex) method extracts a portion of the string starting from index 7 until the end of the string.
+"Hello, World!" → Indexing starts from 0.
+str.substring(7) extracts "World!".
+Line 6:
+java
+Copy
+Edit
+System.out.println("Substring from index 7: " + sub1);
+Prints Substring from index 7: World!.
+Line 7-8:
+java
+Copy
+Edit
+String sub2 = str.substring(0, 5);
+The substring(int beginIndex, int endIndex) method extracts a substring from index 0 to 5 (exclusive).
+"Hello, World!" → str.substring(0, 5) extracts "Hello".
+Line 9:
+java
+Copy
+Edit
+System.out.println("Substring from index 0 to 5: " + sub2);
+Prints Substring from index 0 to 5: Hello.
+Output of the Program
+pgsql
+Copy
+Edit
+Substring from index 7: World!
+Substring from index 0 to 5: Hello
+Key Points for Interview
+substring(beginIndex) extracts from the given index to the end.
+substring(beginIndex, endIndex) extracts from beginIndex to endIndex - 1.
+Indexing starts from 0 in Java.
+Substring method does not modify the original string (Strings are immutable).
+Using substring() incorrectly (e.g., out-of-range indices) will throw StringIndexOutOfBoundsException.

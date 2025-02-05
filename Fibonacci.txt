@@ -1,0 +1,87 @@
+Program to Print Fibonacci Series in Jav
+
+Java Program to Print Fibonacci Series:
+java
+Copy
+Edit
+import java.util.Scanner; // Import Scanner class for user input
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);  // Create a Scanner object to read input from the user
+        
+        System.out.print("Enter the number of terms: ");
+        int n = sc.nextInt();  // Read the number of terms for Fibonacci sequence
+        
+        int first = 0, second = 1;  // Initialize the first two terms of the Fibonacci sequence
+        System.out.print("Fibonacci Series: ");
+        
+        // Print the Fibonacci series
+        for (int i = 1; i <= n; i++) {
+            System.out.print(first + " ");  // Print the current Fibonacci number
+            int nextTerm = first + second;  // Calculate the next term in the series
+            first = second;  // Update first to be the second term
+            second = nextTerm;  // Update second to be the newly calculated term
+        }
+        sc.close();  // Close the Scanner object to avoid resource leak
+    }
+}
+Line-by-Line Explanation:
+import java.util.Scanner;
+
+This line imports the Scanner class from the java.util package. The Scanner class is used to read input from the user.
+public class Fibonacci {
+
+This line defines the class Fibonacci. In Java, all code must be inside a class. The class name here is Fibonacci, and it serves as a container for the program's logic.
+public static void main(String[] args) {
+
+This is the entry point of the Java program. The main method is executed when the program is run. The String[] args allows for command-line arguments (though not used in this case).
+Scanner sc = new Scanner(System.in);
+
+A Scanner object (sc) is created here to capture input from the user. System.in specifies that the input will be read from the console.
+System.out.print("Enter the number of terms: ");
+
+This line prints a message asking the user to enter the number of terms they want to see in the Fibonacci series.
+int n = sc.nextInt();
+
+The user's input (number of terms) is captured using sc.nextInt() and stored in the variable n (an integer). This will determine how many numbers will be printed from the Fibonacci sequence.
+int first = 0, second = 1;
+
+This initializes the first two terms of the Fibonacci series. first is set to 0, and second is set to 1. These two values represent the first two terms in the Fibonacci sequence.
+System.out.print("Fibonacci Series: ");
+
+This line prints the text "Fibonacci Series: " to let the user know that the Fibonacci numbers will follow.
+for (int i = 1; i <= n; i++) {
+
+This line starts a for loop that will run n times, where n is the number of terms the user wants to print. The loop control variable i starts at 1 and increments until it reaches n.
+System.out.print(first + " ");
+
+Inside the loop, the current value of first (which starts at 0) is printed, followed by a space.
+int nextTerm = first + second;
+
+This calculates the next term in the Fibonacci sequence by adding first and second together. This value is stored in the variable nextTerm.
+first = second;
+
+The value of first is updated to the value of second to move to the next term in the sequence.
+second = nextTerm;
+
+The value of second is updated to the newly calculated nextTerm, which will be the next Fibonacci number.
+}
+
+This closing brace marks the end of the for loop.
+sc.close();
+
+This line closes the Scanner object to prevent any potential resource leaks. It's good practice to close resources after use.
+}
+
+This closing brace marks the end of the main method.
+}
+
+This closing brace marks the end of the Fibonacci class.
+Key Points to Discuss with the Interviewer:
+The program uses a for loop to generate and print the Fibonacci sequence up to the specified number of terms.
+The sequence starts with 0 and 1, and each subsequent number is the sum of the previous two numbers.
+The program uses variables first and second to keep track of the two most recent terms in the sequence.
+The Scanner class is used to take user input to specify how many terms of the Fibonacci series to print.
+The program prints each Fibonacci number on the same line, separated by spaces.
+After the input is taken and the Fibonacci sequence is generated, the Scanner object is closed to release system resources.

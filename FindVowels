@@ -1,0 +1,125 @@
+How to find vowels in a given string
+
+Solution:
+import java.util.Scanner;
+
+public class VowelFinder {
+    public static void main(String[] args) {
+        // Step 1: Create a Scanner object to take user input
+        Scanner scanner = new Scanner(System.in);
+        
+        // Step 2: Prompt the user for a string
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();  // Read the entire line as input
+        
+        // Step 3: Close the Scanner object to prevent resource leaks
+        scanner.close();
+        
+        // Step 4: Call the method to find and display vowels
+        findVowels(input);
+    }
+
+    // Step 5: Method to find vowels in the string
+    public static void findVowels(String str) {
+        System.out.print("Vowels in the string: ");
+        
+        // Convert the string to lowercase to handle case insensitivity
+        str = str.toLowerCase();
+        
+        // Step 6: Iterate through the string and check for vowels
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);  // Get each character
+            
+            // Step 7: Check if the character is a vowel
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                System.out.print(ch + " "); // Print the vowel
+            }
+        }
+    }
+}
+
+Explanation of the Program Line by Line
+1. Import Required Package
+java
+
+import java.util.Scanner;
+We import java.util.Scanner to allow user input from the keyboard.
+2. Define the Main Class
+java
+
+public class VowelFinder {
+The class VowelFinder is created, which contains the main method and another helper method findVowels().
+3. Main Method - Execution Starts Here
+java
+
+public static void main(String[] args) {
+The main method is the entry point of the Java program.
+4. Create a Scanner Object
+java
+
+Scanner scanner = new Scanner(System.in);
+This allows us to take user input from the keyboard.
+5. Prompt the User for Input
+java
+
+System.out.print("Enter a string: ");
+String input = scanner.nextLine();
+System.out.print() displays a message asking the user to enter a string.
+scanner.nextLine() reads the entire input string from the user.
+6. Close the Scanner
+java
+
+scanner.close();
+Closing the Scanner object prevents resource leaks.
+7. Call the findVowels() Method
+java
+
+findVowels(input);
+Calls a separate method that processes the string to find vowels.
+8. The findVowels() Method - Processing the String
+java
+
+public static void findVowels(String str) {
+A method is defined that takes the input string and finds vowels in it.
+9. Convert the String to Lowercase
+java
+
+str = str.toLowerCase();
+Converting the string to lowercase makes it easier to check vowels without considering case sensitivity.
+10. Iterate Through Each Character
+java
+
+for (int i = 0; i < str.length(); i++) {
+    char ch = str.charAt(i);
+A loop iterates over each character in the string.
+str.charAt(i) extracts the character at position i.
+11. Check for Vowels
+java
+Copy
+Edit
+if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+    System.out.print(ch + " ");
+}
+A conditional statement checks if the character is one of the vowels (a, e, i, o, u).
+If it's a vowel, it is printed to the console.
+Example Output
+Input:
+csharp
+
+Enter a string: Hello World
+Output:
+csharp
+
+Vowels in the string: e o o
+Time Complexity Analysis
+The time complexity of this program is O(n), where n is the length of the input string.
+The space complexity is O(1) because we are only using a few extra variables.
+Interview Tips
+Explain clearly how the Scanner works – It is used for input handling.
+Mention case insensitivity handling – Converting the string to lowercase simplifies vowel checking.
+Point out iteration logic – The loop runs once for each character (O(n) complexity).
+Highlight vowel-checking logic – Using if conditions to check for vowels.
+Discuss possible improvements:
+Use a HashSet<Character> to store vowels for faster lookup (O(1)) instead of if conditions.
+Count the number of vowels and print the total count.
+Return the vowels as a list instead of printing them directly.

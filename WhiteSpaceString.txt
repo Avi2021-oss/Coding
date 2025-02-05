@@ -1,0 +1,48 @@
+Java Program to Remove White Space from String
+
+Solution:
+
+public class RemoveWhiteSpace {
+    public static void main(String[] args) {
+        String str = "Hello World! Welcome to Java Programming.";
+        String result = str.replaceAll("\\s", "");
+        System.out.println("Original String: " + str);
+        System.out.println("String without white spaces: " + result);
+    }
+}
+
+Explanation:
+
+public class RemoveWhiteSpace {
+
+Declares a public class named RemoveWhiteSpace.
+In Java, every application must have at least one class, and public makes it accessible from other classes.
+public static void main(String[] args) {
+
+Defines the main method, which serves as the entry point of the program.
+public: Allows JVM to access it from outside the class.
+static: Enables execution without creating an object.
+void: Specifies that it does not return any value.
+String[] args: Accepts command-line arguments as an array of strings.
+String str = "Hello World! Welcome to Java Programming.";
+
+Declares and initializes a String variable str with a sample input containing spaces.
+String result = str.replaceAll("\\s", "");
+
+Uses replaceAll() method to remove all white spaces.
+replaceAll("\\s", ""):
+\\s is a regular expression that matches all white space characters (spaces, tabs, newlines, etc.).
+"" (empty string) replaces all spaces with nothing, effectively removing them.
+System.out.println("Original String: " + str);
+
+Prints the original string to the console.
+System.out.println("String without white spaces: " + result);
+
+Prints the modified string without white spaces.
+Output
+
+Original String: Hello World! Welcome to Java Programming.
+String without white spaces: HelloWorld!WelcometoJavaProgramming.
+
+This is a simple and efficient way to remove all white spaces from a string in Java using replaceAll().
+

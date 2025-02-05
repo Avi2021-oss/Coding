@@ -1,0 +1,92 @@
+Java Program to Check perfect Number
+
+Solution:
+import java.util.Scanner;
+
+public class PerfectNumber {
+    public static void main(String[] args) {
+        // Create a Scanner object to take user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter a number
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        // Initialize sum to store the sum of divisors
+        int sum = 0;
+
+        // Loop to find the divisors of the number
+        for (int i = 1; i <= num / 2; i++) {
+            if (num % i == 0) {  // If 'i' divides 'num' perfectly
+                sum += i;  // Add divisor to sum
+            }
+        }
+
+        // Check if sum of divisors equals the original number
+        if (sum == num && num != 0) {
+            System.out.println(num + " is a Perfect Number");
+        } else {
+            System.out.println(num + " is not a Perfect Number");
+        }
+
+        // Close the scanner object
+        scanner.close();
+    }
+}
+
+
+Line-by-line Explanation:
+import java.util.Scanner;
+
+This line imports the Scanner class, which is used for reading user input.
+public class PerfectNumber {
+
+This defines the class PerfectNumber where our logic will reside. In Java, every program needs to be inside a class.
+public static void main(String[] args) {
+
+This is the entry point of the program. The main method is where the program begins execution. It takes an array of strings args as input (though we aren't using them here).
+Scanner scanner = new Scanner(System.in);
+
+We create an object of the Scanner class to read input from the user. System.in refers to the standard input (keyboard).
+System.out.print("Enter a number: ");
+
+This prints a prompt to the user asking them to enter a number.
+int num = scanner.nextInt();
+
+This reads the integer input from the user and stores it in the variable num.
+int sum = 0;
+
+We initialize a variable sum to 0. This will store the sum of divisors of the number num.
+for (int i = 1; i <= num / 2; i++) {
+
+This for-loop starts with i equal to 1 and runs until i reaches half of num. We only check divisors up to num / 2 because a number cannot have divisors greater than itself (except the number itself).
+if (num % i == 0) {
+
+The if condition checks if i is a divisor of num. This is done using the modulus operator %, which returns the remainder when num is divided by i. If the remainder is 0, i is a divisor.
+sum += i;
+
+If i divides num, we add i to the sum.
+}
+
+This closes the if block and the for loop.
+if (sum == num && num != 0) {
+
+This checks if the sum of divisors is equal to num and ensures that num is not zero. If both conditions are true, num is a perfect number.
+System.out.println(num + " is a Perfect Number");
+
+If the above condition is true, this message is printed, indicating that the number is a perfect number.
+} else {
+
+If the sum of divisors is not equal to the number, it goes to the else block.
+System.out.println(num + " is not a Perfect Number");
+
+This message is printed if the number is not a perfect number.
+scanner.close();
+
+This closes the Scanner object to free up system resources.
+}
+
+This closes the main method.
+}
+
+This closes the PerfectNumber class.

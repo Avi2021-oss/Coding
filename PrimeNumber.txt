@@ -1,0 +1,156 @@
+Program to Check whether number is prime in Java
+
+Solution:
+import java.util.Scanner;
+
+public class PrimeNumberCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Creating Scanner object to take user input
+        System.out.print("Enter a number: "); // Prompting user for input
+        int number = scanner.nextInt(); // Reading integer input from user
+
+        if (isPrime(number)) { // Calling isPrime method to check if the number is prime
+            System.out.println(number + " is a prime number.");
+        } else {
+            System.out.println(number + " is not a prime number.");
+        }
+
+        scanner.close(); // Closing the Scanner object to prevent resource leak
+    }
+
+    // Method to check if a number is prime
+    public static boolean isPrime(int num) {
+        if (num <= 1) { // Numbers less than or equal to 1 are not prime
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(num); i++) { // Loop from 2 to sqrt(num) for efficiency
+            if (num % i == 0) { // If num is divisible by any number in this range, it's not prime
+                return false;
+            }
+        }
+        return true; // If no factors are found, the number is prime
+    }
+}
+
+
+Line-by-Line Explanation
+1. Importing Scanner Class
+java
+Copy
+Edit
+import java.util.Scanner;
+This imports the Scanner class from java.util package, which allows us to take user input.
+2. Defining the Main Class
+java
+Copy
+Edit
+public class PrimeNumberCheck {
+This declares the PrimeNumberCheck class, which contains the main method and the prime-checking logic.
+3. Main Method Declaration
+java
+Copy
+Edit
+public static void main(String[] args) {
+The main method is the entry point of the program.
+4. Creating Scanner Object
+java
+Copy
+Edit
+Scanner scanner = new Scanner(System.in);
+This creates a Scanner object to read user input from the console.
+5. Prompting the User for Input
+java
+Copy
+Edit
+System.out.print("Enter a number: ");
+This prints a message asking the user to enter a number.
+6. Reading User Input
+java
+Copy
+Edit
+int number = scanner.nextInt();
+This reads an integer input from the user and stores it in the variable number.
+7. Calling the isPrime Method
+java
+Copy
+Edit
+if (isPrime(number)) {
+This calls the isPrime method, passing number as an argument.
+If the method returns true, the number is prime; otherwise, it's not.
+8. Printing the Result
+java
+Copy
+Edit
+System.out.println(number + " is a prime number.");
+If the number is prime, this prints a confirmation message.
+java
+Copy
+Edit
+System.out.println(number + " is not a prime number.");
+If the number is not prime, this prints a different message.
+9. Closing the Scanner
+java
+Copy
+Edit
+scanner.close();
+This closes the scanner to free up system resources.
+Prime Checking Method (isPrime)
+10. Method Declaration
+java
+Copy
+Edit
+public static boolean isPrime(int num) {
+This defines a static method named isPrime that takes an integer (num) and returns true if it's prime, otherwise false.
+11. Checking if num is ≤ 1
+java
+Copy
+Edit
+if (num <= 1) {
+    return false;
+}
+Prime numbers are greater than 1. If num is 1 or less, it's not prime.
+12. Looping from 2 to sqrt(num)
+java
+Copy
+Edit
+for (int i = 2; i <= Math.sqrt(num); i++) {
+Instead of checking up to num - 1, we check only up to sqrt(num), improving efficiency.
+Any factor larger than sqrt(num) must have a corresponding smaller factor.
+13. Checking Divisibility
+java
+Copy
+Edit
+if (num % i == 0) {
+    return false;
+}
+If num is divisible by any number in the loop, it's not prime.
+14. Returning True if Prime
+java
+Copy
+Edit
+return true;
+If no factors are found, the number is prime.
+Time Complexity
+The loop runs up to √n, making the time complexity O(√n), which is much more efficient than checking all numbers up to n.
+Example Runs
+Input:
+css
+Copy
+Edit
+Enter a number: 7
+Output:
+csharp
+Copy
+Edit
+7 is a prime number.
+Input:
+css
+Copy
+Edit
+Enter a number: 10
+Output:
+csharp
+Copy
+Edit
+10 is not a prime number.

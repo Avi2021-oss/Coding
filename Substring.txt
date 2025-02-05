@@ -78,3 +78,110 @@ substring(beginIndex, endIndex) extracts from beginIndex to endIndex - 1.
 Indexing starts from 0 in Java.
 Substring method does not modify the original string (Strings are immutable).
 Using substring() incorrectly (e.g., out-of-range indices) will throw StringIndexOutOfBoundsException.
+
+========================================================================================================================================================================
+
+Java Program to Find Substrings of a String
+
+Solution:
+Java Program to Find Substrings of a String:
+java
+Copy
+Edit
+public class SubstringExample {
+    public static void main(String[] args) {
+        // Step 1: Define the input string
+        String input = "abc";
+
+        // Step 2: Find and print all substrings
+        System.out.println("Substrings of \"" + input + "\":");
+
+        // Step 3: Outer loop to select the starting point of the substring
+        for (int i = 0; i < input.length(); i++) {
+            
+            // Step 4: Inner loop to select the ending point of the substring
+            for (int j = i + 1; j <= input.length(); j++) {
+                
+                // Step 5: Extract and print the substring from index i to j
+                System.out.println(input.substring(i, j));
+            }
+        }
+    }
+}
+Explanation:
+1. Class Declaration:
+java
+Copy
+Edit
+public class SubstringExample {
+This line defines a public class named SubstringExample, which will contain our program logic.
+The public keyword means this class can be accessed from anywhere, and the class keyword declares the class.
+2. Main Method Declaration:
+java
+Copy
+Edit
+public static void main(String[] args) {
+This is the entry point of any Java program.
+public means this method can be accessed from anywhere.
+static means that this method can be called without creating an instance of the class.
+void indicates that this method doesn't return any value.
+String[] args is an array that holds any command-line arguments passed to the program (not used in this example).
+3. Input String Declaration:
+java
+Copy
+Edit
+String input = "abc";
+This line initializes a string variable input with the value "abc", which is the string for which we will find all substrings.
+4. Printing a Heading:
+java
+Copy
+Edit
+System.out.println("Substrings of \"" + input + "\":");
+This line prints a message indicating that the program will display all substrings of the string input.
+The + operator is used to concatenate the input string to the message.
+5. Outer Loop (Selecting Starting Point):
+java
+Copy
+Edit
+for (int i = 0; i < input.length(); i++) {
+This is the outer loop that will iterate through each character of the input string.
+i is the index representing the starting position of the substring.
+input.length() gives the total number of characters in the string, ensuring that we don’t go out of bounds.
+6. Inner Loop (Selecting Ending Point):
+java
+Copy
+Edit
+for (int j = i + 1; j <= input.length(); j++) {
+The inner loop will determine the ending position of the substring.
+j starts from i + 1 because a substring must have at least one character (i.e., it cannot be empty).
+The loop continues until j <= input.length(), ensuring we capture all possible substrings.
+7. Extract and Print Substring:
+java
+Copy
+Edit
+System.out.println(input.substring(i, j));
+input.substring(i, j) extracts the substring from index i to j-1 (substring’s end index is exclusive).
+The extracted substring is then printed.
+8. Closing Braces:
+java
+Copy
+Edit
+}
+The closing braces mark the end of the inner and outer loops, as well as the main method and the SubstringExample class.
+Sample Output:
+For the input string "abc", the program will output:
+
+nginx
+Copy
+Edit
+Substrings of "abc":
+a
+ab
+abc
+b
+bc
+c
+Interview Explanation:
+Outer Loop: Loops through each starting index i of the string.
+Inner Loop: Loops through each possible ending index j, where j > i, to generate substrings starting at index i and ending at index j-1.
+Substring Extraction: The substring() method is used to get a portion of the string from index i to j-1. This is repeated for all possible combinations of i and j.

@@ -1,0 +1,83 @@
+Program to Reverse a Number in Java
+
+Solution:
+import java.util.Scanner;  // Importing the Scanner class for user input
+
+public class ReverseNumber {   // Main class definition
+    public static void main(String[] args) {  // Main method
+        Scanner sc = new Scanner(System.in);  // Creating a Scanner object for taking input
+        System.out.print("Enter a number: ");  // Prompt user to enter a number
+        int num = sc.nextInt();  // Reading the user input number and storing it in the variable 'num'
+        
+        int reversed = 0;  // Variable 'reversed' to store the reversed number, initialized to 0
+        
+        // While loop to reverse the number
+        while (num != 0) {  
+            int digit = num % 10;  // Get the last digit of the number
+            reversed = reversed * 10 + digit;  // Add the digit to the reversed number and shift its position
+            num = num / 10;  // Remove the last digit from the original number
+        }
+        
+        System.out.println("Reversed Number: " + reversed);  // Output the reversed number
+    }
+}
+
+
+Line-by-Line Explanation
+import java.util.Scanner;
+This imports the Scanner class from the java.util package, which allows the program to read input from the user.
+
+public class ReverseNumber {
+This defines a public class named ReverseNumber. In Java, every application must have at least one class. The class name must match the filename, which is ReverseNumber.java in this case.
+
+public static void main(String[] args) {
+The main method is the entry point for the Java program. This is where the program starts executing.
+
+public: The method is accessible from anywhere.
+static: The method can be called without creating an instance of the class.
+void: The method does not return any value.
+String[] args: This allows passing command-line arguments (though it's not used in this program).
+Scanner sc = new Scanner(System.in);
+This creates a Scanner object named sc to read user input. System.in refers to the standard input stream (keyboard).
+
+System.out.print("Enter a number: ");
+This prints the prompt message asking the user to enter a number.
+
+int num = sc.nextInt();
+This line reads the next integer input from the user and stores it in the variable num.
+
+int reversed = 0;
+A variable reversed is initialized to 0. This variable will store the reversed number as we manipulate the digits of num.
+
+while (num != 0) {
+This while loop will keep running as long as num is not zero. It repeatedly extracts the last digit from num and builds the reversed number.
+
+int digit = num % 10;
+The modulus operator % is used to get the last digit of num. For example, if num is 123, num % 10 gives 3.
+
+reversed = reversed * 10 + digit;
+The reversed number is updated by shifting the current digits left by one place (multiplying by 10) and then adding the new digit. For example:
+
+If reversed was 0 and digit is 3, reversed becomes 0 * 10 + 3 = 3.
+The next time, if reversed is 3 and digit is 2, reversed becomes 3 * 10 + 2 = 32.
+num = num / 10;
+This line removes the last digit from num by performing integer division by 10. For example, if num is 123, num / 10 gives 12.
+
+}
+This closes the while loop. The loop continues to run until all digits of num have been processed.
+
+System.out.println("Reversed Number: " + reversed);
+After the loop finishes, this prints the reversed number stored in the reversed variable.
+
+}
+This closes the main method.
+
+}
+This closes the class definition.
+
+Example Output:
+yaml
+Copy
+Edit
+Enter a number: 12345
+Reversed Number: 54321

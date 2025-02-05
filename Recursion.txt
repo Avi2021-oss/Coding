@@ -1,0 +1,234 @@
+Program to check Palindrome Number in Java
+
+Java Program to Check Palindrome Number:
+java
+Copy
+Edit
+import java.util.Scanner;
+
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        // Create a scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for input
+        System.out.print("Enter a number: ");
+        
+        // Read the integer input from the user
+        int originalNumber = scanner.nextInt();
+        
+        // Initialize a variable to store the reversed number
+        int reversedNumber = 0;
+        
+        // Store the original number in a temporary variable for comparison
+        int number = originalNumber;
+
+        // Reverse the number using a while loop
+        while (number != 0) {
+            // Extract the last digit of the number
+            int digit = number % 10;
+            
+            // Build the reversed number
+            reversedNumber = reversedNumber * 10 + digit;
+            
+            // Remove the last digit from the number
+            number = number / 10;
+        }
+        
+        // Check if the original number is equal to the reversed number
+        if (originalNumber == reversedNumber) {
+            // If the number is equal to its reverse, it's a palindrome
+            System.out.println(originalNumber + " is a palindrome.");
+        } else {
+            // Otherwise, it's not a palindrome
+            System.out.println(originalNumber + " is not a palindrome.");
+        }
+
+        // Close the scanner object
+        scanner.close();
+    }
+}
+Explanation Line by Line:
+import java.util.Scanner;
+
+This imports the Scanner class, which allows us to take input from the user.
+public class PalindromeNumber {
+
+Defines the class PalindromeNumber. Every Java program has a class that contains the main method.
+public static void main(String[] args) {
+
+This is the entry point of the program. The main method is executed when the program starts.
+Scanner scanner = new Scanner(System.in);
+
+Creates a Scanner object to read input from the user. System.in means we are taking input from the keyboard.
+System.out.print("Enter a number: ");
+
+Prints a prompt asking the user to enter a number.
+int originalNumber = scanner.nextInt();
+
+Reads an integer value entered by the user and stores it in the variable originalNumber.
+int reversedNumber = 0;
+
+Initializes a variable reversedNumber to 0. This will be used to store the reversed version of the number.
+int number = originalNumber;
+
+Stores the value of the originalNumber in another variable number, which will be modified during the reversal process.
+while (number != 0) {
+
+Begins a while loop that continues until number becomes 0. Each iteration will process one digit of the number.
+int digit = number % 10;
+
+Extracts the last digit of number using the modulus operator (%). This operation gives the remainder when number is divided by 10.
+reversedNumber = reversedNumber * 10 + digit;
+
+Reverses the digits: multiplies reversedNumber by 10 to shift the digits left by one place, then adds the extracted digit.
+number = number / 10;
+
+Removes the last digit from number by dividing it by 10 (integer division), reducing the size of number in each iteration.
+if (originalNumber == reversedNumber) {
+
+After the loop ends, the originalNumber is compared with the reversedNumber to check if they are the same.
+System.out.println(originalNumber + " is a palindrome.");
+
+If the original number is equal to the reversed number, it means the number is a palindrome, and this message is printed.
+} else {
+
+If the numbers are not equal, the else block is executed.
+System.out.println(originalNumber + " is not a palindrome.");
+
+Prints the message indicating that the number is not a palindrome.
+scanner.close();
+
+Closes the Scanner object to free up resources. It's good practice to close the scanner when it's no longer needed.
+Example Execution:
+If the user enters 121, the output will be:
+121 is a palindrome.
+
+If the user enters 123, the output will be:
+123 is not a palindrome.
+
+This program works by reversing the digits of the number and comparing it to the original number to check if they are the same, thus determining whether the number is a palindrome.
+
+
+
+
+
+
+
+You said:
+using recursion
+ChatGPT said:
+ChatGPT
+Sure! Below is the Java program to check if a number is a palindrome using recursion, along with an explanation of each part of the code.
+
+Java Program to Check Palindrome Number Using Recursion:
+java
+Copy
+Edit
+import java.util.Scanner;
+
+public class PalindromeNumber {
+    
+    // Recursive function to check if the number is a palindrome
+    public static boolean isPalindrome(int number, int temp) {
+        // Base case: If the number is 0, all digits have been checked
+        if (number == 0) {
+            return temp == 0;  // If the reversed number matches the original, it's a palindrome
+        }
+
+        // Extract the last digit of the number
+        int digit = number % 10;
+        
+        // Reverse the number by constructing the number from the last digit
+        temp = temp * 10 + digit;
+
+        // Recursive call with the remaining digits of the number
+        return isPalindrome(number / 10, temp);
+    }
+
+    public static void main(String[] args) {
+        // Create a scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user for input
+        System.out.print("Enter a number: ");
+        
+        // Read the integer input from the user
+        int originalNumber = scanner.nextInt();
+
+        // Call the recursive function to check if the number is a palindrome
+        if (isPalindrome(originalNumber, 0)) {
+            System.out.println(originalNumber + " is a palindrome.");
+        } else {
+            System.out.println(originalNumber + " is not a palindrome.");
+        }
+
+        // Close the scanner object
+        scanner.close();
+    }
+}
+Explanation Line by Line:
+import java.util.Scanner;
+
+Imports the Scanner class to read input from the user.
+public class PalindromeNumber {
+
+Defines the class PalindromeNumber. This is the main class containing the logic.
+public static boolean isPalindrome(int number, int temp) {
+
+This is a recursive method isPalindrome that checks if the given number is a palindrome. It takes two parameters:
+number: the original number passed in each recursive call.
+temp: the reversed number, which is updated during each recursion.
+if (number == 0) {
+
+This is the base case of the recursion. When number becomes 0, all digits have been processed, and the function will check if the reversed number (temp) matches the original.
+return temp == 0;
+
+If number is 0, it compares temp (the reversed number) with the original number. If they are equal, the number is a palindrome, so it returns true; otherwise, it returns false.
+int digit = number % 10;
+
+Extracts the last digit of the number using the modulus operator (% 10).
+temp = temp * 10 + digit;
+
+Updates temp by multiplying it by 10 (shifting the digits left) and adding the extracted digit. This builds the reversed number.
+return isPalindrome(number / 10, temp);
+
+This is the recursive step. It calls isPalindrome again with the remaining number (number / 10, which removes the last digit) and the updated temp (the reversed number so far).
+public static void main(String[] args) {
+
+The main method is the entry point of the program where the user interacts.
+Scanner scanner = new Scanner(System.in);
+
+Creates a Scanner object to read the input from the user.
+System.out.print("Enter a number: ");
+
+Asks the user to input a number.
+int originalNumber = scanner.nextInt();
+
+Reads the integer input from the user and stores it in the variable originalNumber.
+if (isPalindrome(originalNumber, 0)) {
+
+Calls the isPalindrome method with the original number and initializes temp to 0. If the function returns true, the number is a palindrome.
+System.out.println(originalNumber + " is a palindrome.");
+
+If the number is a palindrome, this message is printed.
+} else {
+
+If the number is not a palindrome, the else block is executed.
+System.out.println(originalNumber + " is not a palindrome.");
+
+Prints the message indicating the number is not a palindrome.
+scanner.close();
+
+Closes the Scanner object after the input is taken.
+Example Execution:
+If the user enters 121, the output will be:
+121 is a palindrome.
+
+If the user enters 123, the output will be:
+123 is not a palindrome.
+
+How Recursion Works in This Program:
+The recursion works by taking the last digit of the number in each recursive call and building the reversed number (temp).
+Each time, the number is divided by 10 to remove the last digit until the number becomes 0.
+The base case checks if the reversed number (temp) matches the original number, and if so, the function returns true indicating it’s a palindrome.
